@@ -9,7 +9,7 @@ const Exercise = props => (
     <td>{props.exercise.duration}</td>
     <td>{props.exercise.date.substring(0,10)}</td>
     <td>
-        <Link to={"/edit/"+props.exercise._id}>edit</Link> | <a href="#" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</a>
+        <Link className="btn btn-primary" to={"/edit/"+props.exercise._id}>edit</Link> <a href="#" className="btn btn-warning" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</a>
     </td>
     </tr>
 )
@@ -33,7 +33,7 @@ export default class ExerciseList extends Component {
     }
 
     deleteExercise(id) {
-        axios.delete('http"//localhost:5000/exercises/'+id)
+        axios.delete('http://localhost:5000/exercises/'+id)
         .then(res => console.log(res.data));
 
         this.setState({
